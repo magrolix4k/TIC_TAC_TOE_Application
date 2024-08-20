@@ -8,7 +8,9 @@
     ดาวน์โหลดและติดตั้ง [Flutter SDK](https://flutter.dev/docs/get-started/install) หากยังไม่ได้ติดตั้ง
 
 2. **โคลนโปรเจกต์นี้**:
+    ```bash
     https://github.com/magrolix4k/TIC_TAC_TOE_Application
+        ```
 
 3. **เข้าไปยังไดเรกทอรีของโปรเจกต์**:
     ```bash
