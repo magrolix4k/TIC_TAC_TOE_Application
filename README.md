@@ -10,22 +10,21 @@
 2. **โคลนโปรเจกต์นี้**:
     ```bash
     https://github.com/magrolix4k/TIC_TAC_TOE_Application
-        ```
-
-3. **เข้าไปยังไดเรกทอรีของโปรเจกต์**:
-    ```bash
-    cd tic_tac_toe_game
-    ```
-
-4. **ติดตั้ง Dependencies**:
-    รันคำสั่งต่อไปนี้เพื่อทำการติดตั้ง dependencies ที่จำเป็นสำหรับโปรเจค:
-    ```bash
-    flutter pub get
     ```
 
 ### ขั้นตอนการรันโปรแกรม
 
-1. **รันแอปพลิเคชันบน Emulator หรือ Device จริง**:
+1. **เข้าไปยังไดเรกทอรีของโปรเจกต์**:
+    ```bash
+    cd tic_tac_toe_game
+    ```
+
+2. **ติดตั้ง Dependencies**:
+    รันคำสั่งต่อไปนี้เพื่อทำการติดตั้ง dependencies ที่จำเป็นสำหรับโปรเจค:
+    ```bash
+    flutter pub get
+    ```
+3. **รันแอปพลิเคชันบน Emulator หรือ Device จริง**:
     ```bash
     flutter run
     ```
