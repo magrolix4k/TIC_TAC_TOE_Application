@@ -1,6 +1,7 @@
+//main.dart
 import 'package:flutter/material.dart';
-import 'viewmodels/tic_tac_toe_viewmodel.dart';
-import 'views/mode_selection_screen.dart';
+import 'presentation/bloc/tic_tac_toe_bloc.dart';
+import 'presentation/pages/game_mode_selection_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,11 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tic Tac Toe',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: GameModeSelectionScreen(viewModel: _viewModel),
     );
   }

@@ -1,4 +1,5 @@
-enum BotDifficulty { Easy, Medium, Hard }
+//models/game_model.dart
+import '../../core/enums/bot_difficulty.dart';
 
 class GameModel {
   final int boardSize;

@@ -1,8 +1,8 @@
-//databasse_helper.dart
-
+//services/database_helper.dart
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import '../models/game_model.dart';
+import '../../../core/enums/bot_difficulty.dart';
+import '../../../core/constants/database_constants.dart';
 
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._init();
@@ -22,33 +22,13 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 2,
+      version: 1,
       onCreate: _createDB,
-      onUpgrade: _upgradeDB,
     );
   }
 
   Future _createDB(Database db, int version) async {
-    await db.execute('''
-    CREATE TABLE games (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      boardSize INTEGER,
-      winner TEXT,
-      isSinglePlayer INTEGER,
-      botDifficulty TEXT,
-      moves TEXT,
-      dateTime TEXT
-    )
-    ''');
-  }
-
-  Future _upgradeDB(Database db, int oldVersion, int newVersion) async {
-    if (oldVersion < 2) {
-      await db.execute('''
-      ALTER TABLE games ADD COLUMN botDifficulty TEXT;
-      ALTER TABLE games ADD COLUMN dateTime TEXT;
-      ''');
-    }
+    await db.execute(createGamesTable);
   }
 
   Future<void> saveGame({
@@ -74,13 +54,11 @@ class DatabaseHelper {
     return await db.query('games', orderBy: 'dateTime DESC');
   }
 
-  // Delete a specific game by ID
   Future<void> deleteGameById(int id) async {
     final db = await instance.database;
     await db.delete('games', where: 'id = ?', whereArgs: [id]);
   }
 
-  // Delete all games
   Future<void> deleteAllGames() async {
     final db = await instance.database;
     await db.delete('games');
